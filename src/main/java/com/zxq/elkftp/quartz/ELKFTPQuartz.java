@@ -15,7 +15,7 @@ public class ELKFTPQuartz {
     @Autowired
     private ELKFTPService elkftpService;
 
-    @Scheduled(cron = "? 0 16 * * ?")
+    @Scheduled(cron = "0 0 16 * * ? ")
     private Object startFtp() {
         return elkftpService.startFtp();
     }
