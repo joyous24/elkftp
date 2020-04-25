@@ -1,5 +1,6 @@
 package com.zxq.elkftp.service;
 
+import com.zxq.elkftp.util.StatusUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
@@ -30,6 +31,8 @@ public class ELKFTPService {
     private static Logger logger = Logger.getLogger(ELKFTPService.class);
 
     public boolean startFtp() {
+        StatusUtil.status.set(false);
+
         String downPath = "/usr/local/logs";
         String fileName = "common-error.log";
         File file = new File(downPath + "\\" + fileName);
@@ -109,6 +112,8 @@ public class ELKFTPService {
 
         try {
             ftp.logout();
+
+            StatusUtil.status.set(false);
         } catch (Exception e) {
             logger.error("FTP关闭失败");
         } finally {
