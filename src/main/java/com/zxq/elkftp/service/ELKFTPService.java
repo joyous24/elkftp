@@ -31,7 +31,7 @@ public class ELKFTPService {
     private static Logger logger = Logger.getLogger(ELKFTPService.class);
 
     public boolean startFtp() {
-        StatusUtil.status.set(false);
+        StatusUtil.status.set(true);
 
         String downPath = "/usr/local/logs";
         String fileName = "common-error.log";
