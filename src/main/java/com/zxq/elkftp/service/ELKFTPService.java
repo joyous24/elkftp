@@ -166,12 +166,14 @@ public class ELKFTPService {
                     if (flag) {
                         logger.info("下载成功");
                     } else {
+                        StatusUtil.status.set(false);
                         logger.error("下载失败");
                     }
                 }
             }
 
         } catch (Exception e) {
+            StatusUtil.status.set(false);
             logger.error("下载失败");
         }
 
