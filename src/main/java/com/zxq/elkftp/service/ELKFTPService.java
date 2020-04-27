@@ -33,11 +33,11 @@ public class ELKFTPService {
     public boolean startFtp() {
         StatusUtil.status.set(true);
 
-        String downPath = "/usr/local/logs";
+        String downPath = File.separator + "usr" + File.separator + "local" + File.separator + "logs";
         String fileName = "common-error.log";
-        File file = new File(downPath + "\\" + fileName);
+        File file = new File(downPath + File.separator + fileName);
         if (file.exists()) {
-            file.renameTo(new File(downPath + "\\" + fileName + "." + getDate()));
+            file.renameTo(new File(downPath + File.separator + fileName + "." + getDate()));
         }
 
         FTPClient ftp = this.getFTPClient("119.254.109.131", 5521, "zhaoxiqing", "3dkfFd78");
