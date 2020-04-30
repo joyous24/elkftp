@@ -24,8 +24,13 @@ public class ELKFTPController {
         }
 
         new Thread(() -> {
-            elkftpService.startFtp();
+            elkftpService.startFtp("common-warn.log");
         }).start();
+
+        new Thread(() -> {
+            elkftpService.startFtp("common-error.log");
+        }).start();
+
         return "任务下载中。。。";
     }
 }

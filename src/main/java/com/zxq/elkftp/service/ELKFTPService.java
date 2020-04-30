@@ -30,11 +30,10 @@ import java.util.Calendar;
 public class ELKFTPService {
     private static Logger logger = Logger.getLogger(ELKFTPService.class);
 
-    public boolean startFtp() {
+    public boolean startFtp(String fileName) {
         StatusUtil.status.set(true);
 
         String downPath = File.separator + "usr" + File.separator + "local" + File.separator + "logs";
-        String fileName = "common-error.log";
         File file = new File(downPath + File.separator + fileName);
         if (file.exists()) {
             file.renameTo(new File(downPath + File.separator + fileName + "." + getDate()));

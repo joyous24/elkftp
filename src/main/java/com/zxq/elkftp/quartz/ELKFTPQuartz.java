@@ -17,7 +17,15 @@ public class ELKFTPQuartz {
 
     @Scheduled(cron = "0 0 23 * * ?")
     private Object startFtp() {
-        return elkftpService.startFtp();
+        new Thread(() -> {
+            elkftpService.startFtp("common-warn.log");
+        }).start();
+
+        new Thread(() -> {
+            elkftpService.startFtp("common-error.log");
+        }).start();
+
+        return true;
     }
 
 }
